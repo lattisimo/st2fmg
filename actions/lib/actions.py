@@ -17,6 +17,7 @@ class BaseFortiManagerAction(Action):
         self.password = self.config['password']
         self.conn_debug = self.config['conn_debug']
         self.conn_ssl = self.config['conn_ssl']
+        self.conn_warn = self.config['conn_warn']
         self.conn_verify = self.config['conn_verify']
         self.conn_timeout = self.config['conn_timeout']
         self.fmg = FortiManager
