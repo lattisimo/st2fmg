@@ -28,7 +28,8 @@ class BaseFortiManagerAction(Action):
                        self.username,
                        self.password,
                        debug=self.conn_debug,
-                       use_ssl=self.config['conn_ssl'],
-                       verify_ssl=self.config['conn_verify'],
-                       timeout=self.config['conn_timeout'])
+                       use_ssl=self.conn_ssl,
+                       disable_request_warnings=self.conn_warn,
+                       verify_ssl=self.conn_verify,
+                       timeout=self.conn_timeout)
         return fmg
