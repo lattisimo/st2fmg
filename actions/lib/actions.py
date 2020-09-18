@@ -1,0 +1,34 @@
+"""Base module for Fortimanager pack"""
+from st2common.runners.base_action import Action
+from pyFMG.fortimgr import FortiManager
+
+__all__ = [
+    'BaseFortiManagerAction'
+]
+
+
+class BaseFortiManagerAction(Action):
+    """ Base Action for Fortimanager pack"""
+
+    def __init__(self, config):
+        super(BaseFortiManagerAction, self).__init__(config=config)
+        self.fortimanager = self.config['fortimnager']
+        self.username = self.config['username']
+        self.password = self.config['password']
+        self.conn_debug = self.config['conn_debug']
+        self.conn_ssl = self.config['conn_ssl']
+        self.conn_verify = self.config['conn_verify']
+        self.conn_timeout = self.config['conn_timeout']
+        self.fmg = FortiManager
+
+    def fmgconnector(self):
+        """Default connector for FortiManager"""
+
+        fmg = self.fmg(self.fortimanager,
+                       self.username,
+                       self.password,
+                       debug=self.conn_debug,
+                       use_ssl=self.config['conn_ssl'],
+                       verify_ssl=self.config['conn_verify'],
+                       timeout=self.config['conn_timeout'])
+        return fmg

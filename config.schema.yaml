@@ -1,0 +1,34 @@
+---
+fortimanager:
+  description: Fortimanager IP or hostname
+  type: string
+  required: true
+username:
+  description: remote-rpc user name on the FortiManager
+  type: string
+  required: true
+password:
+  description: remote-rpc user password on the FortiManager
+  type: string
+  secret: true
+  required: true
+conn_debug:
+  type: boolean
+  description: Enable api call requests and responses output in stdout
+  default: false
+  required: true
+conn_ssl:
+  type: boolean
+  description: Use HTTPS for connection
+  default: true
+  required: true
+conn_verify:
+  type: boolean
+  description: Disable warnings for no valid SSL certificate on the connection
+  default: false
+  required: true
+conn_timeout:
+  type: integer
+  description: Timeout for http requests
+  default: 100
+  required: true

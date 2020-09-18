@@ -1,0 +1,14 @@
+---
+name: update
+description: Generic update command
+runner_type: python-script
+enabled: true
+entry_point: update.py
+parameters:
+  url:
+    type: string
+    description: URL endpoint for add action
+    required: true
+  kwargs:
+    type: object
+    description: Keyword arguments for add action
