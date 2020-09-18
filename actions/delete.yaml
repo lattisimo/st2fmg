@@ -3,7 +3,7 @@ name: delete
 description: Generic delete action
 runner_type: python-script
 enabled: true
-entry_point: call.py
+entry_point: delete.py
 parameters:
   reqmethod:
     default: delete
