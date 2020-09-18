@@ -1,5 +1,5 @@
 ---
-ref: stFMG
+ref: stfmg
 name: stFMG
 description: Fortinet Fortimanger central management via JSON-RPC
 keywords:
