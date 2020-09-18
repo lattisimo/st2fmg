@@ -3,14 +3,8 @@ name: get
 description: Generic get action
 runner_type: python-script
 enabled: true
-entry_point: call.py
+entry_point: get.py
 parameters:
-  reqmethod:
-    default: get
-    immutable: true
-    type: string
-    description: pyFMG method to envoke
-    required: true
   url:
     type: string
     description: "url endpoint to get"
