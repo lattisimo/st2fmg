@@ -20,7 +20,7 @@ class Call(BaseFortiManagerAction):
         action = kwargs.pop('reqmethod')
         url = kwargs.pop('url')
         with self.fmgconnector() as fmg:
-            status, result = fmg.str(action)(url, **kwargs)
+            status, result = getattr(fmg, f"{reqmethod}({url}, {**kwargs}")
         if status == 0:
             return (True, result)
         return (False, result)
