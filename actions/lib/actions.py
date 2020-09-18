@@ -12,7 +12,7 @@ class BaseFortiManagerAction(Action):
 
     def __init__(self, config):
         super(BaseFortiManagerAction, self).__init__(config=config)
-        self.fortimanager = self.config['fortimnager']
+        self.fortimanager = self.config['fortimanager']
         self.username = self.config['username']
         self.password = self.config['password']
         self.conn_debug = self.config['conn_debug']
