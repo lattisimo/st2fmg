@@ -19,12 +19,17 @@ conn_debug:
   required: true
 conn_ssl:
   type: boolean
-  description: Use HTTPS for connection
+  description: Enable HTTPS for connection
   default: true
+  required: true
+conn_warn:
+  type: boolean
+  description: Enable valid SSL certificate warning on the connection
+  default: false
   required: true
 conn_verify:
   type: boolean
-  description: Disable warnings for no valid SSL certificate on the connection
+  description: Require valid SSL certificate on the connection
   default: false
   required: true
 conn_timeout:
