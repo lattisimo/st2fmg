@@ -17,7 +17,7 @@ class Call(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
-        action = kwargs.pop('action')
+        action = kwargs.pop('reqmethod')
         url = kwargs.pop('url')
         with self.fmgconnector() as fmg:
             status, result = fmg.str(action)(url, **kwargs)
