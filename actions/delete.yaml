@@ -7,7 +7,7 @@ entry_point: call.py
 parameters:
   action:
     default: delete
-    imutable: true
+    immutable: true
     type: string
     description: pyFMG method to envoke
     required: true
