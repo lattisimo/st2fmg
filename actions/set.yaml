@@ -7,8 +7,8 @@ entry_point: set.py
 parameters:
   url:
     type: string
-    description: URL endpoint for add action
+    description: URL endpoint for set action
     required: true
   kwargs:
     type: object
-    description: Keyword arguments for add action
+    description: Keyword arguments for set action
