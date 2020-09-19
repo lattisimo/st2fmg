@@ -17,80 +17,6 @@ parameters:
       Limit the output by returning only the attributes 
       specified in the string array. If none specified,
       all attributes will be returned.
-    enum:
-      [
-        adm_pass,
-        adm_usr,
-        app_ver,
-        av_ver,
-        beta,
-        branch_pt,
-        build,
-        checksum,
-        conf_status,
-        conn_mode,
-        conn_status,
-        db_status,
-        desc,
-        dev_status,
-        fap_cnt,
-        faz.full_act,
-        faz.perm,
-        faz.quota,
-        faz.used,
-        fex_cnt,
-        flags,
-        foslic_cpu,
-        foslic_dr_site,
-        foslic_inst_time,
-        foslic_last_sync,
-        foslic_ram,
-        foslic_type,
-        foslic_utm,
-        fsw_cnt,
-        ha_group_id,
-        ha_group_name,
-        ha_mode,
-        hdisk_size,
-        hostname,
-        hw_rev_major,
-        hw_rev_minor,
-        ip,
-        ips_ext,
-        ips_ver,
-        last_checked,
-        last_resync,
-        latitude,
-        lic_flags,
-        lic_region,
-        location_from,
-        logdisk_size,
-        longitude,
-        maxvdom,
-        mgmt_id,
-        mgmt_if,
-        mgmt_mode,
-        mgt_vdom,
-        module_sn,
-        mr,
-        name,
-        os_type,
-        os_ver,
-        patch,
-        platform_str,
-        prefer_img_ver,
-        prio,
-        psk,
-        role,
-        sn,
-        version,
-        vm_cpu,
-        vm_cpu_limit,
-        vm_lic_expire,
-        vm_mem,
-        vm_mem_limit,
-        vm_status,
-      ]
   loadsub:
     type: integer
     description: |
@@ -99,6 +25,10 @@ parameters:
       sub-objects.
   option:
     type: string
+    description: |
+      Set fetch option for the request. If no option is
+      specified, by default the attributes of the objects
+      will be returned.
     enum:
       - count
       - object member
