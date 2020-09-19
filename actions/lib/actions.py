@@ -34,9 +34,9 @@ class BaseFortiManagerAction(Action):
                            verify_ssl=self.conn_verify,
                            timeout=self.conn_timeout)
         except FMGValidSessionException as err:
-            self.logger.critical("Unable to establish session | Check Credentials", extra=err)
+            self.logger.critical(msg="Unable to establish session | Check Credentials", extra=err)
         except FMGConnectionError as err:
-            self.logger.critical("Unable to connect to host | Check hostname/IP", extra=err)
+            self.logger.critical(msg="Unable to connect to host | Check hostname/IP", extra=err)
 
         self.logger.info("Connection Successful")
         self.logger.debug(extra=fmg.__dict__)
