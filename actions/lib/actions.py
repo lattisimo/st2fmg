@@ -38,7 +38,7 @@ class BaseFortiManagerAction(Action):
         except FMGConnectionError as err:
             self.logger.critical(msg="Unable to connect to host | Check hostname/IP", extra=err)
 
-        self.logger.info("Connection Successful")
-        self.logger.debug(extra=fmg.__dict__)
+        self.logger.info(msg="Connection Successful")
+        self.logger.debug(msg="Connected", extra=fmg.__dict__)
 
         return fmg
