@@ -47,7 +47,7 @@ parameters:
     description: |
       Filter the result according to a set of criteria.
   loadsub:
-    type: boolean
+    type: integer
     description: |
       Enable or disable the return of any sub-objects.
       If not specified, the default is to return all
