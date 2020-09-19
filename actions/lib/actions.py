@@ -20,19 +20,19 @@ class BaseFortiManagerAction(Action):
         self.conn_warn = self.config['conn_warn']
         self.conn_verify = self.config['conn_verify']
         self.conn_timeout = self.config['conn_timeout']
-        self.fmg = FortiManager
+        self._fmg = FortiManager
 
     def fmgconnector(self):
         """Default connector for FortiManager"""
 
-        fmg = self.fmg(self.fortimanager,
-                       self.username,
-                       self.password,
-                       debug=self.conn_debug,
-                       use_ssl=self.conn_ssl,
-                       disable_request_warnings=self.conn_warn,
-                       verify_ssl=self.conn_verify,
-                       timeout=self.conn_timeout)
+        fmg = self._fmg(self.fortimanager,
+                        self.username,
+                        self.password,
+                        debug=self.conn_debug,
+                        use_ssl=self.conn_ssl,
+                        disable_request_warnings=self.conn_warn,
+                        verify_ssl=self.conn_verify,
+                        timeout=self.conn_timeout)
 
         # self.logger.debug("{}".format(fmg.__repr__))
         # self.logger.info("API User {} connected to {}".format(
