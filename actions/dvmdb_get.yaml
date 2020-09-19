@@ -1,0 +1,62 @@
+---
+name: dvmdb-get
+description: Device Manager Database Get
+runner_type: python-script
+enabled: true
+entry_point: dvmdb_get.py
+parameters:
+  root:
+    required: true
+    immutable: true
+    default: dvmdb
+    type: string
+    description: root of the url endpoint
+  section:
+    required: true
+    default: device
+    type: string
+    description: Fortimanager database section
+    enum:
+      - _meta_fields
+      - adom
+      - device
+      - folder
+      - group
+      - revision
+      - script
+      - workflow
+      - workspace
+  adom:
+    type: string
+    description: Fortimanager ADOM
+  device:
+    type: string
+    description: Device name
+  fields:
+    type: array
+    description: |
+      Limit the output by returning only the attributes 
+      specified in the string array. If none specified,
+      all attributes will be returned.
+  loadsub:
+    type: integer
+    description: |
+      Enable or disable the return of any sub-objects.
+      If not specified, the default is to return all
+      sub-objects.
+  option:
+    type: string
+    description: |
+      Set fetch option for the request. If no option is
+      specified, by default the attributes of the objects
+      will be returned.
+    enum:
+      - count
+      - object member
+      - syntax
+  meta___fields:
+    type: array
+    description: |
+      Specify the meta field attributes to be returned
+      in the result. If none specified, no meta field
+      attribute will be returned.
