@@ -24,10 +24,10 @@ class dvmdbGet(BaseFortiManagerAction):
         section = kwargs.pop('section')
         table = kwargs.pop('table')
         url = f"{section}/{table}"
-        if 'adom' in kwargs:
+        if kwargs['adom']:
             adom = kwargs.pop('adom')
             url = f"{section}/adom/{adom}/{table}"
-        if 'device' in kwargs:
+        if kwargs['device']:
             device = kwargs.pop('device')
             url = f"{url}/{device}"
 
