@@ -34,7 +34,7 @@ parameters:
     description: Device name
   expand___member:
     type: string
-    decription: |
+    description: |
       Fetch all or selected attributes of object members.
   fields:
     type: array
