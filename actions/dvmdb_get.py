@@ -21,7 +21,7 @@ class dvmdbGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
-        url = f"{kwargs.pop('root')}/{kwargs.pop('section')}"
+        url = f"{kwargs.pop('rooturl')}/{kwargs.pop('section')}"
         if 'adom' in kwargs:
             adom = kwargs.pop('adom')
             url = f"{kwargs.pop('root')}/adom/{adom}/device"

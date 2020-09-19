@@ -5,7 +5,7 @@ runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
 parameters:
-  root:
+  rooturl:
     required: true
     immutable: true
     default: dvmdb
