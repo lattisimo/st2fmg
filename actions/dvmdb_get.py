@@ -6,11 +6,11 @@ from pyFMG.fortimgr import (FMGBaseException,
                             FMGConnectionError)
 
 __all__ = [
-    'dvmdbGet'
+    'DvmdbGet'
 ]
 
 
-class dvmdbGet(BaseFortiManagerAction):
+class DvmdbGet(BaseFortiManagerAction):
     """Default dvmdb get action class"""
 
     def run(self, **kwargs):
