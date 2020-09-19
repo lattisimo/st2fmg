@@ -24,7 +24,7 @@ class FortimanagerGet(BaseFortiManagerAction):
             with self.fmgconnector() as fmg:
                 fmg.getLog()
                 status, result = fmg.get(url)
-                self.logger.debug("{}".format(str(fmg))
+                self.logger.debug("{}".format(str(fmg)))
             if status == 0:
                 return (True, result)
             return (False, result)
