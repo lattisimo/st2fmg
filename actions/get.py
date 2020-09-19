@@ -5,11 +5,11 @@ from pyFMG.fortimgr import (FMGBaseException,
                             FMGConnectionError)
 
 __all__ = [
-    'Get'
+    'stFMGget'
 ]
 
 
-class Get(BaseFortiManagerAction):
+class stFMGget(BaseFortiManagerAction):
     """Default get action class"""
 
     def run(self, url):
