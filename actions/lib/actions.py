@@ -34,6 +34,7 @@ class BaseFortiManagerAction(Action):
                        verify_ssl=self.conn_verify,
                        timeout=self.conn_timeout)
 
-        self.logger.info(msg="FMG Connector created")
+        self.logger.info(msg="FMG Connector created for {} to {}".format(
+            self.username, self.fortimanager))
 
         return fmg
