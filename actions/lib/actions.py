@@ -1,6 +1,6 @@
 """Base module for Fortimanager pack"""
 from st2common.runners.base_action import Action
-from pyFMG.fortimgr import FortiManager, FMGBaseException, FMGValidSessionException, FMGConnectionError
+from pyFMG.fortimgr import FortiManager
 
 __all__ = [
     'BaseFortiManagerAction'
@@ -24,21 +24,16 @@ class BaseFortiManagerAction(Action):
 
     def fmgconnector(self):
         """Default connector for FortiManager"""
-        try:
-            fmg = self.fmg(self.fortimanager,
-                           self.username,
-                           self.password,
-                           debug=self.conn_debug,
-                           use_ssl=self.conn_ssl,
-                           disable_request_warnings=self.conn_warn,
-                           verify_ssl=self.conn_verify,
-                           timeout=self.conn_timeout)
-        except FMGValidSessionException as err:
-            self.logger.critical(msg="Unable to establish session | Check Credentials", extra=err)
-        except FMGConnectionError as err:
-            self.logger.critical(msg="Unable to connect to host | Check hostname/IP", extra=err)
 
-        self.logger.info(msg="Connection Successful")
-        self.logger.debug(msg="Connected", extra=fmg.__dict__)
+        fmg = self.fmg(self.fortimanager,
+                       self.username,
+                       self.password,
+                       debug=self.conn_debug,
+                       use_ssl=self.conn_ssl,
+                       disable_request_warnings=self.conn_warn,
+                       verify_ssl=self.conn_verify,
+                       timeout=self.conn_timeout)
+
+        self.logger.info(msg="FMG Connector created")
 
         return fmg
