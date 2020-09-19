@@ -12,7 +12,7 @@ __all__ = [
 class FortimanagerGet(BaseFortiManagerAction):
     """Default get action class"""
 
-    def run(self, url):
+    def run(self, **kwargs):
         """
         Default get action.
 
@@ -20,9 +20,10 @@ class FortimanagerGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
+        url = kwargs.pop('url')
         try:
             with self.fmgconnector() as instance:
-                status, result = instance.get(url)
+                status, result = instance.get(url, **kwargs)
                 self.logger.info("{}".format(str(instance)))
             if status == 0:
                 return (True, result)
