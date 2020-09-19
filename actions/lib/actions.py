@@ -34,8 +34,8 @@ class BaseFortiManagerAction(Action):
                        verify_ssl=self.conn_verify,
                        timeout=self.conn_timeout)
 
-        self.logger.debug("{}".format(fmg.__repr__))
-        self.logger.info("API User {} connected to {}".format(
-            self.username, self.fortimanager))
+        # self.logger.debug("{}".format(fmg.__repr__))
+        # self.logger.info("API User {} connected to {}".format(
+        #     self.username, self.fortimanager))
 
         return fmg
