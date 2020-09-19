@@ -1,8 +1,7 @@
 from lib.actions import BaseFortiManagerAction
-from pyFMG.Fortimgr import (FMGBaseException,
+from pyFMG.fortimgr import (FMGBaseException,
                             FMGValidSessionException,
                             FMGConnectTimeout)
-
 
 __all__ = [
     'Get'
