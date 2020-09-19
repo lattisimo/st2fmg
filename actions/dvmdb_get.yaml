@@ -5,13 +5,13 @@ runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
 parameters:
-  rooturl:
+  section:
     required: true
     immutable: true
     default: dvmdb
     type: string
     description: root of the url endpoint
-  section:
+  table:
     required: true
     default: device
     type: string
