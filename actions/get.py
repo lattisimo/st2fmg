@@ -21,10 +21,9 @@ class FortimanagerGet(BaseFortiManagerAction):
         :return: (boolean, result)
         """
         try:
-            with self.fmgconnector() as fmg:
-                fmg.getLog()
-                status, result = fmg.get(url)
-                self.logger.debug("{}".format(str(fmg)))
+            with self.fmgconnector() as instance:
+                status, result = instance.get(url)
+                self.logger.info("{}".format(str(instance)))
             if status == 0:
                 return (True, result)
             return (False, result)
