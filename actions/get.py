@@ -21,10 +21,12 @@ class FortimanagerGet(BaseFortiManagerAction):
         :return: (boolean, result)
         """
         url = kwargs.pop('url')
+
         try:
             with self.fmgconnector() as instance:
-                status, result = instance.get(url, **kwargs)
                 self.logger.info("{}".format(str(instance)))
+                status, result = instance.get(url, **kwargs)
+
             if status == 0:
                 return (True, result)
             return (False, result)
