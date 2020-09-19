@@ -30,7 +30,7 @@ class Get(BaseFortiManagerAction):
 
         except FMGValidSessionException:
             self.logger.critical("Invalid Session - Check Credentials")
-            return False
+            return (False, "Session Failed")
         except (FMGConnectTimeout, FMGConnectionError):
             self.logger.critical("Unreachable Host - Check hostname/IP")
-            return False
+            return (False, "Connection Failed")
