@@ -5,11 +5,11 @@ from pyFMG.fortimgr import (FMGBaseException,
                             FMGConnectionError)
 
 __all__ = [
-    'stFMGget'
+    'FortimanagerGet'
 ]
 
 
-class stFMGget(BaseFortiManagerAction):
+class FortimanagerGet(BaseFortiManagerAction):
     """Default get action class"""
 
     def run(self, url):
@@ -32,5 +32,5 @@ class stFMGget(BaseFortiManagerAction):
             self.logger.critical("Invalid Session - Check Credentials")
             return (False, "Session Failed")
         except (FMGConnectTimeout, FMGConnectionError):
-            self.logger.critical("Unreachable Host - Check hostname/IP")
+            self.logger.critical("Unreachable Host - Check Hostname/IP")
             return (False, "Connection Failed")
