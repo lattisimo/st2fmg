@@ -22,10 +22,10 @@ class Get(BaseFortiManagerAction):
         try:
             with self.fmgconnector() as fmg:
                 status, result = fmg.get(url)
-        except FMGValidSessionException as err:
-            self.logger.critical("Invalid Session - Check Credentials", extra=err)
-        except FMGConnectTimeout as err:
-            self.logger.critical("Unreachable Host - Check hostname/IP", extra=err)
+        except FMGValidSessionException:
+            self.logger.critical("Invalid Session - Check Credentials")
+        except FMGConnectTimeout:
+            self.logger.critical("Unreachable Host - Check hostname/IP")
         if status == 0:
             return (True, result)
         return (False, result)
