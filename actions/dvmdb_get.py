@@ -30,11 +30,11 @@ class dvmdbGet(BaseFortiManagerAction):
         if kwargs['device']:
             device = kwargs.pop('device')
             url = f"{url}/{device}"
-
+        justargs = {k: v for k, v in vars(kwargs).items() if v is not None}
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
-                status, result = instance.get(url, **kwargs)
+                status, result = instance.get(url, **justargs)
 
             if status == 0:
                 return (True, result)
