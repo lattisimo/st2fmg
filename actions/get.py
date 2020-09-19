@@ -1,7 +1,8 @@
 from lib.actions import BaseFortiManagerAction
 from pyFMG.fortimgr import (FMGBaseException,
                             FMGValidSessionException,
-                            FMGConnectTimeout)
+                            FMGConnectTimeout,
+                            FMGConnectionError)
 
 __all__ = [
     'Get'
@@ -30,6 +31,6 @@ class Get(BaseFortiManagerAction):
         except FMGValidSessionException:
             self.logger.critical("Invalid Session - Check Credentials")
             return False
-        except FMGConnectTimeout:
+        except FMGConnectTimeout, FMGConnectionError:
             self.logger.critical("Unreachable Host - Check hostname/IP")
             return False
