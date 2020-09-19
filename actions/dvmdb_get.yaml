@@ -32,12 +32,20 @@ parameters:
   device:
     type: string
     description: Device name
+  expand___member:
+    type: string
+    decription: |
+      Fetch all or selected attributes of object members.
   fields:
     type: array
     description: |
       Limit the output by returning only the attributes 
       specified in the string array. If none specified,
       all attributes will be returned.
+  filter:
+    type: string
+    description: |
+      Filter the result according to a set of criteria.
   loadsub:
     type: integer
     description: |
