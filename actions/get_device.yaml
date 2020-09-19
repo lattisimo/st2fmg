@@ -17,7 +17,7 @@ parameters:
       Limit the output by returning only the attributes 
       specified in the string array. If none specified,
       all attributes will be returned.
-    enumerate:
+    enum:
       [
         adm_pass,
         adm_usr,
@@ -97,6 +97,12 @@ parameters:
       Enable or disable the return of any sub-objects.
       If not specified, the default is to return all
       sub-objects.
+  option:
+    type: string
+    enum:
+      - count
+      - object member
+      - syntax
   meta___fields:
     type: array
     description: |
