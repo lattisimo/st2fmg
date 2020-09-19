@@ -17,7 +17,17 @@ class DvmdbGet(BaseFortiManagerAction):
         """
         Default dvmdb get action method.
 
-        :url: URL to get - FortiManager version
+        :section: root of the url endpoint
+        :table: fortimanager database section
+        :adom: fortimanager adom
+        :device: fortigate device
+        :expand_member: fetch all or selected attributes of object members
+        :fields: imit the output by returning only the attributes specified
+        :filter: filter the result according to a set of criteria.
+        :loadsub: enable or disable the return of any sub-objects
+        :option: set fetch option for the request
+        :meta_fields: Specify the meta field attributes to be returned in the result
+
 
         :return: (boolean, result)
         """
@@ -31,6 +41,7 @@ class DvmdbGet(BaseFortiManagerAction):
             device = kwargs.pop('device')
             url = f"{url}/{device}"
         justargs = {k: v for k, v in kwargs.items() if v is not None}
+
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
