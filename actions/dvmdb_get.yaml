@@ -43,7 +43,7 @@ parameters:
       specified in the string array. If none specified,
       all attributes will be returned.
   filter:
-    type: string
+    type: array
     description: |
       Filter the result according to a set of criteria.
   loadsub:
