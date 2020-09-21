@@ -31,8 +31,11 @@ class DvmdbGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
+        if kwargs['table'] == 'device':
+            url, data = dvmdb_device(kwargs)
+        if kwargs['table'] == 'adom':
+            url, data = dvmdb_adom(kwargs)
 
-        url, data = dvmdb_device(kwargs)
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
@@ -80,4 +83,19 @@ def dvmdb_device(runnerdata):
         data['loadsub'] = 0
 
     url = f"{database}/{table}/{subtable}"
+    return url, data
+
+
+def dvmdb_adom(runnerdata):
+    """dvmdb adom data parser"""
+    data = {k: v for k, v in runnerdata.items() if v is not None}
+    database = data.pop('database')
+    table = data.pop('table')
+    subtable = ""
+
+    url = f"{database}/{table}"
+    if 'adom' in data:
+        adom = data.pop('adom')
+        url = f"{database}/{table}/{adom}"
+
     return url, data
