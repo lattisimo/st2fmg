@@ -38,18 +38,18 @@ class DvmdbGet(BaseFortiManagerAction):
             table, subtable = table.split('/', 1)
             if 'ha_slave' in kwargs:
                 ha_slave = kwargs['ha_slave']
-                subtable = f"/ha_slave/{ha_slave}"
+                subtable = f"ha_slave/{ha_slave}"
             if 'vdom' in kwargs:
                 vdom = kwargs['vdom']
-                subtable = f"/vdom/{vdom}"
+                subtable = f"vdom/{vdom}"
 
         if kwargs['device']:
             device = kwargs.pop('device')
-            table = f"/{table}/{device}"
+            table = f"{table}/{device}"
         if kwargs['adom']:
             adom = kwargs.pop('adom')
-            adom_url = f"/adom/{adom}"
-            database = f"{database}/{adom_url}"
+            adom_url = f"adom/{adom}"
+            database = f"{database}{adom_url}"
 
         url = f"{database}/{table}/{subtable}"
         justargs = {k: v for k, v in kwargs.items() if v is not None}
