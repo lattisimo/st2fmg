@@ -1,37 +1,31 @@
 ---
-name: dvmdb-get
-description: Device Manager Database Get
+name: device-vdom-get
+description: Device table VDOM Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
 parameters:
-  section:
+  database:
     required: true
     immutable: true
     default: dvmdb
-    type: string
-    description: root of the url endpoint
+    description: Database
   table:
     required: true
-    default: device
+    immutable: true
+    default: device/vdom
     type: string
-    description: Fortimanager database section
-    enum:
-      - _meta_fields
-      - adom
-      - device
-      - folder
-      - group
-      - revision
-      - script
-      - workflow
-      - workspace
+    description: Database table
   adom:
     type: string
     description: Fortimanager ADOM
   device:
+    required: true
     type: string
     description: Device name
+  vdom:
+    type: string
+    description: Fortigate VDOM
   expand___member:
     type: string
     description: |
