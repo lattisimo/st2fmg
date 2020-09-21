@@ -38,6 +38,7 @@ class DvmdbGet(BaseFortiManagerAction):
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
                 status, result = instance.get(url, **data)
+            self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if status == 0:
                 return (True, result)
