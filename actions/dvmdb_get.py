@@ -31,11 +31,7 @@ class DvmdbGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
-        if kwargs['table'] == 'device':
-            url, data = dvmdb_device(kwargs)
-        if kwargs['table'] == 'adom':
-            url, data = dvmdb_adom(kwargs)
-
+        url, data = dvmdb_parse(kwargs)
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
@@ -57,9 +53,11 @@ class DvmdbGet(BaseFortiManagerAction):
             return (False, "Connection Failed")
 
 
-def dvmdb_device(runnerdata):
-    """dvmdb device data parser"""
+def dvmdb_parse(runnerdata):
+    """dvmdb data parser"""
     data = {k: v for k, v in runnerdata.items() if v is not None}
+    if 'loadsub' not in data:  # stackstorm doesn't like to send a zero
+        data['loadsub'] = 0
     database = data.pop('database')
     table = data.pop('table')
     subtable = ""
@@ -72,30 +70,20 @@ def dvmdb_device(runnerdata):
             vdom = data['vdom']
             subtable = f"vdom/{vdom}"
 
-    if 'device' in data:
-        device = data.pop('device')
-        table = f"{table}/{device}"
     if 'adom' in data:
         adom = data.pop('adom')
         adom_url = f"adom/{adom}"
         database = f"{database}/{adom_url}"
-    if 'loadsub' not in data:
-        data['loadsub'] = 0
+
+    if 'device' in data:
+        device = data.pop('device')
+        table = f"{table}/{device}"
+    if 'folder' in data:
+        folder = data.pop('folder')
+        table = f"{table}/{folder}"
+    if '_adom' in data:
+        _adom = data.pop('adom')
+        url = f"{table}/{_adom}"
 
     url = f"{database}/{table}/{subtable}"
-    return url, data
-
-
-def dvmdb_adom(runnerdata):
-    """dvmdb adom data parser"""
-    data = {k: v for k, v in runnerdata.items() if v is not None}
-    database = data.pop('database')
-    table = data.pop('table')
-    subtable = ""
-
-    url = f"{database}/{table}"
-    if 'adom' in data:
-        adom = data.pop('adom')
-        url = f"{database}/{table}/{adom}"
-
     return url, data

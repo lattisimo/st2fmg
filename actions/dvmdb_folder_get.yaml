@@ -1,6 +1,6 @@
 ---
-name: adom-get
-description: ADOM table Get
+name: dvmdb-folder-get
+description: Folder table Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
@@ -13,12 +13,15 @@ parameters:
   table:
     required: true
     immutable: true
-    default: adom
+    default: folder
     type: string
     description: Database table
   adom:
     type: string
     description: Fortimanager ADOM
+  folder:
+    type: string
+    description: Folder name
   expand___member:
     type: string
     description: |

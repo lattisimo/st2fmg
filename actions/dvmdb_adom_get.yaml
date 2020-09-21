@@ -1,0 +1,57 @@
+---
+name: dvmdb-adom-get
+description: ADOM table Get
+runner_type: python-script
+enabled: true
+entry_point: dvmdb_get.py
+parameters:
+  database:
+    required: true
+    immutable: true
+    default: dvmdb
+    description: Database
+  table:
+    required: true
+    immutable: true
+    default: adom
+    type: string
+    description: Database table
+  _adom:
+    type: string
+    description: ADOM name
+  expand___member:
+    type: string
+    description: |
+      Fetch all or selected attributes of object members.
+  fields:
+    type: array
+    description: |
+      Limit the output by returning only the attributes 
+      specified in the string array. If none specified,
+      all attributes will be returned.
+  filter:
+    type: array
+    description: |
+      Filter the result according to a set of criteria.
+  loadsub:
+    type: integer
+    description: |
+      Enable or disable the return of any sub-objects.
+      If not specified, the default is to return all
+      sub-objects.
+  option:
+    type: string
+    description: |
+      Set fetch option for the request. If no option is
+      specified, by default the attributes of the objects
+      will be returned.
+    enum:
+      - count
+      - object member
+      - syntax
+  meta___fields:
+    type: array
+    description: |
+      Specify the meta field attributes to be returned
+      in the result. If none specified, no meta field
+      attribute will be returned.

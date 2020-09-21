@@ -1,6 +1,6 @@
 ---
-name: device-vdom-get
-description: Device table VDOM Get
+name: dvmdb-device-get
+description: Device table Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
@@ -13,19 +13,15 @@ parameters:
   table:
     required: true
     immutable: true
-    default: device/vdom
+    default: device
     type: string
     description: Database table
   adom:
     type: string
     description: Fortimanager ADOM
   device:
-    required: true
     type: string
     description: Device name
-  vdom:
-    type: string
-    description: Fortigate VDOM
   expand___member:
     type: string
     description: |
