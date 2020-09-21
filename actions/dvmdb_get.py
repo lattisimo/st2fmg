@@ -31,33 +31,11 @@ class DvmdbGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
-        database = kwargs.pop('database')
-        table = kwargs.pop('table')
-        subtable = ""
-        if '/' in table:
-            table, subtable = table.split('/', 1)
-            if 'ha_slave' in kwargs:
-                ha_slave = kwargs['ha_slave']
-                subtable = f"ha_slave/{ha_slave}"
-            if 'vdom' in kwargs:
-                vdom = kwargs['vdom']
-                subtable = f"vdom/{vdom}"
-
-        if kwargs['device']:
-            device = kwargs.pop('device')
-            table = f"{table}/{device}"
-        if kwargs['adom']:
-            adom = kwargs.pop('adom')
-            adom_url = f"adom/{adom}"
-            database = f"{database}/{adom_url}"
-
-        url = f"{database}/{table}/{subtable}"
-        justargs = {k: v for k, v in kwargs.items() if v is not None}
-
+        url, data = dvmdb_device(kwargs)
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
-                status, result = instance.get(url, **justargs)
+                status, result = instance.get(url, **data)
 
             if status == 0:
                 return (True, result)
@@ -71,3 +49,32 @@ class DvmdbGet(BaseFortiManagerAction):
         except FMGBaseException:
             self.logger.exception("Connection Error")
             return (False, "Connection Failed")
+
+
+def dvmdb_device(runnerdata):
+    """dvmdb device data parser"""
+    data = {k: v for k, v in runnerdata.items() if v is not None}
+    database = data.pop('database')
+    table = data.pop('table')
+    subtable = ""
+    if '/' in table:
+        table, subtable = table.split('/', 1)
+        if 'ha_slave' in data:
+            ha_slave = data['ha_slave']
+            subtable = f"ha_slave/{ha_slave}"
+        if 'vdom' in data:
+            vdom = data['vdom']
+            subtable = f"vdom/{vdom}"
+
+    if 'device' in data:
+        device = data.pop('device')
+        table = f"{table}/{device}"
+    if 'adom' in data:
+        adom = data.pop('adom')
+        adom_url = f"adom/{adom}"
+        database = f"{database}/{adom_url}"
+    if 'loadsub' not in data:
+        data['loadsub'] = 0
+
+    url = f"{database}/{table}/{subtable}"
+    return url, data
