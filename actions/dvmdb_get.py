@@ -83,7 +83,7 @@ def dvmdb_parse(runnerdata):
         table = f"{table}/{folder}"
     if '_adom' in data:
         _adom = data.pop('_adom')
-        url = f"{table}/{_adom}"
+        table = f"{table}/{_adom}"
 
     url = f"{database}/{table}/{subtable}"
     return url, data
