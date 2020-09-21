@@ -1,6 +1,6 @@
 ---
-name: device-get
-description: Device table Get
+name: adom-get
+description: ADOM table Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
