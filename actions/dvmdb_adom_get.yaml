@@ -1,5 +1,5 @@
 ---
-name: dvmdb-adom-get
+name: dvmdb_adom_get
 description: ADOM table Get
 runner_type: python-script
 enabled: true
@@ -16,7 +16,7 @@ parameters:
     default: adom
     type: string
     description: Database table
-  _adom:
+  name:
     type: string
     description: ADOM name
   expand___member:

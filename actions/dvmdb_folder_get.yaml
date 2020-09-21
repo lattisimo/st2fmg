@@ -1,5 +1,5 @@
 ---
-name: dvmdb-folder-get
+name: dvmdb_folder_get
 description: Folder table Get
 runner_type: python-script
 enabled: true
@@ -19,7 +19,7 @@ parameters:
   adom:
     type: string
     description: Fortimanager ADOM
-  folder:
+  name:
     type: string
     description: Folder name
   expand___member:

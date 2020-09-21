@@ -1,5 +1,5 @@
 ---
-name: dvmdb-device-get
+name: dvmdb_device_get
 description: Device table Get
 runner_type: python-script
 enabled: true
@@ -19,7 +19,7 @@ parameters:
   adom:
     type: string
     description: Fortimanager ADOM
-  device:
+  name:
     type: string
     description: Device name
   expand___member:

@@ -58,7 +58,13 @@ def dvmdb_parse(runnerdata):
     data = {k: v for k, v in runnerdata.items() if v is not None}
     if 'loadsub' not in data:  # stackstorm doesn't like to send a zero
         data['loadsub'] = 0
+
     database = data.pop('database')
+    if 'adom' in data:
+        adom = data.pop('adom')
+        adom_url = f"adom/{adom}"
+        database = f"{database}/{adom_url}"
+
     table = data.pop('table')
     subtable = ""
     if '/' in table:
@@ -70,20 +76,9 @@ def dvmdb_parse(runnerdata):
             vdom = data['vdom']
             subtable = f"vdom/{vdom}"
 
-    if 'adom' in data:
-        adom = data.pop('adom')
-        adom_url = f"adom/{adom}"
-        database = f"{database}/{adom_url}"
-
-    if 'device' in data:
-        device = data.pop('device')
-        table = f"{table}/{device}"
-    if 'folder' in data:
-        folder = data.pop('folder')
-        table = f"{table}/{folder}"
-    if '_adom' in data:
-        _adom = data.pop('_adom')
-        table = f"{table}/{_adom}"
+    if 'name' in data:
+        name = data.pop('name')
+        table = f"{table}/{name}"
 
     url = f"{database}/{table}/{subtable}"
     return url, data

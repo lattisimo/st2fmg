@@ -1,6 +1,6 @@
 ---
-name: dvmdb_device_ha_slave_get
-description: Device table HA Slave Get
+name: dvmdb_group_get
+description: Device table Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
@@ -13,19 +13,15 @@ parameters:
   table:
     required: true
     immutable: true
-    default: device/ha_slave
+    default: device
     type: string
     description: Database table
   adom:
     type: string
     description: Fortimanager ADOM
   name:
-    required: true
     type: string
-    description: Device name
-  ha_slave:
-    type: string
-    description: HA slave ID number
+    description: Group name
   expand___member:
     type: string
     description: |
