@@ -5,8 +5,6 @@ from pyFMG.fortimgr import (FMGBaseException,
                             FMGConnectTimeout,
                             FMGConnectionError)
 
-from st2common import log as logging
-LOG = logging.getLogger(__name__)
 
 __all__ = [
     'DvmdbGet'
@@ -37,22 +35,22 @@ class DvmdbGet(BaseFortiManagerAction):
         url, data = dvmdb_parse(kwargs)
         try:
             with self.fmgconnector() as instance:
-                LOG.info("{}".format(str(instance)))
-                LOG.info("{}".format("FortiManager instance endpoint {}".format(url)))
+                self.logger.info("{}".format(str(instance)))
+                self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
                 status, result = instance.get(url, **data)
-            LOG.info("{}".format("FortiManager instance disonnected"))
+            self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if status == 0:
                 return (True, result)
             return (False, result)
 
         except FMGValidSessionException:
-            LOG.critical("Invalid Session - Check Credentials")
+            self.logger.critical("Invalid Session - Check Credentials")
             return (False, "Session Failed")
         except (FMGConnectTimeout, FMGConnectionError):
-            LOG.critical("Unreachable Host - Check Hostname/IP")
+            self.logger.critical("Unreachable Host - Check Hostname/IP")
         except FMGBaseException:
-            LOG.exception("Connection Error")
+            self.logger.exception("Connection Error")
             return (False, "Connection Failed")
 
 

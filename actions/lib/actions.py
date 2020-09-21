@@ -2,9 +2,6 @@
 from st2common.runners.base_action import Action
 from pyFMG.fortimgr import FortiManager
 
-from st2common import log as logging
-LOG = logging.getLogger(__name__)
-
 __all__ = [
     'BaseFortiManagerAction'
 ]
