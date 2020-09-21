@@ -49,7 +49,7 @@ class DvmdbGet(BaseFortiManagerAction):
         if kwargs['adom']:
             adom = kwargs.pop('adom')
             adom_url = f"adom/{adom}"
-            database = f"{database}{adom_url}"
+            database = f"{database}/{adom_url}"
 
         url = f"{database}/{table}/{subtable}"
         justargs = {k: v for k, v in kwargs.items() if v is not None}
