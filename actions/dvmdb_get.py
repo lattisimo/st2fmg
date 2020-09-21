@@ -60,6 +60,9 @@ def dvmdb_parse(runnerdata):
         data['loadsub'] = 0
 
     database = data.pop('database')
+    if '_global' in data:
+        if data['_global']:
+            database = f"{database}/{data['_global']}"
     if 'adom' in data:
         adom = data.pop('adom')
         adom_url = f"adom/{adom}"
