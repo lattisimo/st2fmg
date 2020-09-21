@@ -1,6 +1,6 @@
 ---
 name: dvmdb_group_get
-description: Device table Get
+description: Group table Get
 runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
@@ -13,7 +13,7 @@ parameters:
   table:
     required: true
     immutable: true
-    default: device
+    default: group
     type: string
     description: Database table
   adom:
