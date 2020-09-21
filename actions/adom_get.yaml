@@ -13,7 +13,7 @@ parameters:
   table:
     required: true
     immutable: true
-    default: device
+    default: adom
     type: string
     description: Database table
   adom:
