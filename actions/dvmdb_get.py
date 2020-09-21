@@ -31,10 +31,12 @@ class DvmdbGet(BaseFortiManagerAction):
 
         :return: (boolean, result)
         """
+
         url, data = dvmdb_device(kwargs)
         try:
             with self.fmgconnector() as instance:
                 self.logger.info("{}".format(str(instance)))
+                self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
                 status, result = instance.get(url, **data)
 
             if status == 0:
