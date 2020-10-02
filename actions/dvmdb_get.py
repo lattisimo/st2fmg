@@ -14,7 +14,7 @@ __all__ = [
 class DvmdbGet(BaseFortiManagerAction):
     """Default dvmdb get action class"""
 
-    def run(self, **kwargs):
+    def run(self, fortimanager=None, **kwargs):
         """
         Default dvmdb get action method.
 
@@ -34,7 +34,7 @@ class DvmdbGet(BaseFortiManagerAction):
         """
         url, data = dvmdb_parse(kwargs)
         try:
-            with self.fmgconnector() as instance:
+            with self.fmgconnector(fortimanager) as instance:
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
                 status, result = instance.get(url, **data)
@@ -63,8 +63,8 @@ def dvmdb_parse(runnerdata):
     database = data.pop('database')
     if '_global' in data:
         if data['_global']:
-            database = f"{database}/{data['_global']}"
-    if 'adom' in data:
+            database = f"{database}/global"
+    elif 'adom' in data:
         adom = data.pop('adom')
         adom_url = f"adom/{adom}"
         database = f"{database}/{adom_url}"

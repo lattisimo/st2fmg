@@ -22,13 +22,16 @@ class BaseFortiManagerAction(Action):
         self.conn_timeout = self.config['conn_timeout']
         self._fmg = FortiManager
 
-    def fmgconnector(self):
+    def fmgconnector(self, fortimanager=None, debug=False):
         """Default connector for FortiManager"""
-
-        fmg = self._fmg(self.fortimanager,
+        if not fortimanager:
+            fortimanager = self.fortimanager
+        if not debug:
+            debug = self.conn_debug
+        fmg = self._fmg(fortimanager,
                         self.username,
                         self.password,
-                        debug=self.conn_debug,
+                        debug=debug,
                         use_ssl=self.conn_ssl,
                         disable_request_warnings=self.conn_warn,
                         verify_ssl=self.conn_verify,
