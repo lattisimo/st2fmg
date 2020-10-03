@@ -5,6 +5,10 @@ runner_type: python-script
 enabled: true
 entry_point: dvmdb_get.py
 parameters:
+  fortimanager:
+    required: false
+    type: string
+    description: override fortimanager IP/host in config
   database:
     required: true
     immutable: true
