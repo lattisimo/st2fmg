@@ -20,6 +20,16 @@ The FNDN API refference - https://fndn.fortinet.net/ - Ask your Fortinet Rep
 - username: override rpc user name
 - password: override rpc user password
 - conn_debug: enable pyFMG debug outpit
+## add
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
+## delete
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
 ## set
 - fortimanager: override fmg ip/host
 - username: override rpc user name

@@ -1,9 +1,9 @@
 ---
-name: free_form
-description: Generic set command
+name: update
+description: Generic update command
 runner_type: python-script
 enabled: true
-entry_point: free_form.py
+entry_point: update.py
 parameters:
   host:
     description: overide fortimanager IP or Hostname
@@ -22,10 +22,9 @@ parameters:
     required: true
     type: string
   data:
-    default: {}
     description: |
-      Dictionary of data to pass as kwargs to the freeform call
-    required: false
+      Dictionary of data to pass as kwargs to the update call
+    required: true
     type: object
   fmg_debug:
     default: false

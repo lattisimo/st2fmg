@@ -1,4 +1,4 @@
-"""Device Manager Database Execute module"""
+"""Device Manager Database Delete module"""
 from lib.actions import BaseFortiManagerAction
 from pyFMG.fortimgr import (FMGBaseException,
                             FMGValidSessionException,
@@ -7,16 +7,16 @@ from pyFMG.fortimgr import (FMGBaseException,
 
 
 __all__ = [
-    'Exec'
+    'Delete'
 ]
 
 
-class Exec(BaseFortiManagerAction):
-    """Default set action class"""
+class Delete(BaseFortiManagerAction):
+    """Default get action class"""
 
     def run(self, **kwargs):
         """
-        Default set action method.
+        Default get action method.
 
         :host: overwrite fortimanager ip or hostname
         :username: overwriting username
@@ -40,7 +40,10 @@ class Exec(BaseFortiManagerAction):
                                    ) as instance:
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
-                code, result = instance.execute(url, **data)
+                # if data:
+                code, result = instance.get(url, **data)
+                # else:
+                #     code, result = instance.get(url)
             self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if code:

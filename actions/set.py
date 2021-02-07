@@ -1,4 +1,4 @@
-"""Device Manager Database Get module"""
+"""Device Manager Database Set module"""
 from lib.actions import BaseFortiManagerAction
 from pyFMG.fortimgr import (FMGBaseException,
                             FMGValidSessionException,

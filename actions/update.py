@@ -1,4 +1,4 @@
-"""Device Manager Database Execute module"""
+"""Device Manager Database Update module"""
 from lib.actions import BaseFortiManagerAction
 from pyFMG.fortimgr import (FMGBaseException,
                             FMGValidSessionException,
@@ -7,11 +7,11 @@ from pyFMG.fortimgr import (FMGBaseException,
 
 
 __all__ = [
-    'Exec'
+    'Update'
 ]
 
 
-class Exec(BaseFortiManagerAction):
+class Update(BaseFortiManagerAction):
     """Default set action class"""
 
     def run(self, **kwargs):
@@ -40,7 +40,7 @@ class Exec(BaseFortiManagerAction):
                                    ) as instance:
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
-                code, result = instance.execute(url, **data)
+                code, result = instance.update(url, **data)
             self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if code:

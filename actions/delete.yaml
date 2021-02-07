@@ -1,9 +1,9 @@
 ---
-name: free_form
-description: Generic set command
+name: delete
+description: Generic delete command
 runner_type: python-script
 enabled: true
-entry_point: free_form.py
+entry_point: delete.py
 parameters:
   host:
     description: overide fortimanager IP or Hostname
@@ -24,7 +24,7 @@ parameters:
   data:
     default: {}
     description: |
-      Dictionary of data to pass as kwargs to the freeform call
+      Dictionary of data to pass as kwargs to the delete call
     required: false
     type: object
   fmg_debug:
