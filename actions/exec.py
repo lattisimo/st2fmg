@@ -12,7 +12,7 @@ __all__ = [
 
 
 class Execute(BaseFortiManagerAction):
-    """Default set action class"""
+    """Default execute action class"""
 
     def run(self, **kwargs):
         """

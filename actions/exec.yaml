@@ -1,6 +1,6 @@
 ---
 name: execute
-description: Generic exec command
+description: Generic execute command
 runner_type: python-script
 enabled: true
 entry_point: exec.py
