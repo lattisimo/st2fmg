@@ -40,7 +40,10 @@ class Get(BaseFortiManagerAction):
                                    ) as instance:
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
-                code, result = instance.get(url, **data)
+                if data:
+                    code, result = instance.get(url, **data)
+                else:
+                    code, result = instance.get(url)
             self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if code:

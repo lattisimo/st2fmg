@@ -22,7 +22,7 @@ conn_verify:
 fortimanager:
   default:
   description: Fortimanager IP or hostname
-  required: true
+  required: false
   type: string
 password:
   default:
@@ -33,5 +33,5 @@ password:
 username:
   default:
   description: remote-rpc user name on the FortiManager
-  required: true
+  required: false
   type: string
