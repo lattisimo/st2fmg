@@ -1,7 +1,7 @@
 ---
 conn_ssl:
   default: true
-  description: Enable HTTPS for connection
+  description: Enable HTTPS (port 443) for connection
   required: true
   type: boolean
 conn_timeout:
@@ -11,7 +11,7 @@ conn_timeout:
   type: integer
 conn_warn:
   default: false
-  description: Enable valid SSL certificate warning on the connection
+  description: Disable valid SSL certificate warning on the connection
   required: true
   type: boolean
 conn_verify:
@@ -26,12 +26,12 @@ fortimanager:
   type: string
 password:
   default:
-  description: remote-rpc user password on the FortiManager
+  description: User password for FortiManager remote-rpc call
   required: false
   secret: true
   type: string
 username:
   default:
-  description: remote-rpc user name on the FortiManager
+  description: User name for FortiManager remote-rpc call
   required: false
   type: string
