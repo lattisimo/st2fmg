@@ -7,11 +7,11 @@ from pyFMG.fortimgr import (FMGBaseException,
 
 
 __all__ = [
-    'Exec'
+    'Execute'
 ]
 
 
-class Exec(BaseFortiManagerAction):
+class Execute(BaseFortiManagerAction):
     """Default set action class"""
 
     def run(self, **kwargs):

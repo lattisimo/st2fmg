@@ -1,5 +1,5 @@
 ---
-name: exec
+name: execute
 description: Generic exec command
 runner_type: python-script
 enabled: true
