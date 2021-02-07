@@ -20,12 +20,10 @@ conn_verify:
   required: true
   type: boolean
 fortimanager:
-  default:
   description: Fortimanager IP or hostname
   required: false
   type: string
 password:
-  default:
   description: User password for FortiManager remote-rpc call
   required: false
   secret: true

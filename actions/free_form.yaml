@@ -1,6 +1,6 @@
 ---
 name: free_form
-description: Generic set command
+description: Generic free form command
 runner_type: python-script
 enabled: true
 entry_point: free_form.py
@@ -16,6 +16,7 @@ parameters:
   password:
     description: override fortimanager password in config
     required: false
+    secret: true
     type: string
   url:
     description: rpc endpoint

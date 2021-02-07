@@ -16,6 +16,7 @@ parameters:
   password:
     description: override fortimanager password in config
     required: false
+    secret: true
     type: string
   taskid:
     description: task id
