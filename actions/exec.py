@@ -40,7 +40,7 @@ class Exec(BaseFortiManagerAction):
                                    ) as instance:
                 self.logger.info("{}".format(str(instance)))
                 self.logger.info("{}".format("FortiManager instance endpoint {}".format(url)))
-                code, result = instance.exec(url, **data)
+                code, result = instance.execute(url, **data)
             self.logger.info("{}".format("FortiManager instance disonnected"))
 
             if code:
