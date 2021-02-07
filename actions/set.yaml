@@ -24,7 +24,7 @@ parameters:
   data:
     description: |
       Dictionary of data to pass as kwargs to the set call
-    required: false
+    required: true
     type: object
   fmg_debug:
     default: false

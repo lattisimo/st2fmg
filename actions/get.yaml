@@ -22,9 +22,10 @@ parameters:
     required: true
     type: string
   data:
+    default: {}
     description: |
       Dictionary of data to pass as kwargs to the get call
-    required: false
+    required: true
     type: object
   fmg_debug:
     default: false
