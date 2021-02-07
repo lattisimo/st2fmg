@@ -1,0 +1,35 @@
+---
+name: update
+description: Generic update command
+runner_type: python-script
+enabled: true
+entry_point: update.py
+parameters:
+  host:
+    description: overide fortimanager IP or Hostname
+    required: false
+    type: string
+  username:
+    description: override fortimanager username in config
+    required: false
+    type: string
+  password:
+    description: override fortimanager password in config
+    required: false
+    secret: true
+    type: string
+  url:
+    description: rpc endpoint
+    required: true
+    type: string
+  data:
+    description: |
+      Dictionary of data to pass as kwargs to the update call
+    required: true
+    type: object
+  fmg_debug:
+    default: false
+    description: |
+      Enable api call requests and responses output
+    required: false
+    type: boolean
