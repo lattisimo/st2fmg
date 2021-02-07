@@ -1,9 +1,9 @@
 ---
-name: set
-description: Generic set command
+name: track_task
+description: Special track task command
 runner_type: python-script
 enabled: true
-entry_point: set.py
+entry_point: trac_task.py
 parameters:
   host:
     description: overide fortimanager IP or Hostname
