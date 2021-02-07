@@ -10,21 +10,34 @@ The FNDN API refference - https://fndn.fortinet.net/ - Ask your Fortinet Rep
 - fortimanager: default fmg ip/host
 - username: rpc user name
 - password: rpc user password
-- conn_debug: enable pyFMG debug outpit
 - conn_ssl: use https
 - conn_warn: use ssl cert warning
 - conn_verify: require valid ssl cert
 - conn_timeout: requests timeout
 
-## DVMDB
-- ADOM Get
-- Device Get - Only tested action so far
-  - HA Slave
-  - VDOM
-- Folder Get
-- Group Get
-
-
-free_form
-
-track_task
+## get
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
+## set
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
+## exec
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
+## free_form
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- conn_debug: enable pyFMG debug outpit
+## track_task
+- fortimanager: override fmg ip/host
+- username: override rpc user name
+- password: override rpc user password
+- taskid: task id to be tracked
+- conn_debug: enable pyFMG debug outpit

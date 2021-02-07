@@ -4,6 +4,7 @@ from pyFMG.fortimgr import FortiManager
 
 __all__ = [
     'BaseFortiManagerAction'
+
 ]
 
 
@@ -15,30 +16,27 @@ class BaseFortiManagerAction(Action):
         self.fortimanager = self.config['fortimanager']
         self.username = self.config['username']
         self.password = self.config['password']
-        self.conn_debug = self.config['conn_debug']
         self.conn_ssl = self.config['conn_ssl']
         self.conn_warn = self.config['conn_warn']
         self.conn_verify = self.config['conn_verify']
         self.conn_timeout = self.config['conn_timeout']
         self._fmg = FortiManager
 
-    def fmgconnector(self, fortimanager=None, debug=False):
+    def fmgconnector(self, fortimanager=None, username=None, password=None, debug=False):
         """Default connector for FortiManager"""
         if not fortimanager:
             fortimanager = self.fortimanager
-        if not debug:
-            debug = self.conn_debug
+        if not username:
+            username = self.username
+        if not password:
+            password = self.password
         fmg = self._fmg(fortimanager,
-                        self.username,
-                        self.password,
+                        username,
+                        password,
                         debug=debug,
                         use_ssl=self.conn_ssl,
                         disable_request_warnings=self.conn_warn,
                         verify_ssl=self.conn_verify,
                         timeout=self.conn_timeout)
-
-        # self.logger.debug("{}".format(fmg.__repr__))
-        # self.logger.info("API User {} connected to {}".format(
-        #     self.username, self.fortimanager))
 
         return fmg
