@@ -12,11 +12,11 @@ __all__ = [
 
 
 class Update(BaseFortiManagerAction):
-    """Default set action class"""
+    """Default update action class"""
 
     def run(self, **kwargs):
         """
-        Default set action method.
+        Default update action method.
 
         :host: overwrite fortimanager ip or hostname
         :username: overwriting username

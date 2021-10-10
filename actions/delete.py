@@ -12,11 +12,11 @@ __all__ = [
 
 
 class Delete(BaseFortiManagerAction):
-    """Default get action class"""
+    """Default delete action class"""
 
     def run(self, **kwargs):
         """
-        Default get action method.
+        Default delete action method.
 
         :host: overwrite fortimanager ip or hostname
         :username: overwriting username
