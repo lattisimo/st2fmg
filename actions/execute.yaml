@@ -3,7 +3,7 @@ name: execute
 description: Generic execute command
 runner_type: python-script
 enabled: true
-entry_point: exec.py
+entry_point: execute.py
 parameters:
   host:
     description: overide fortimanager IP or Hostname

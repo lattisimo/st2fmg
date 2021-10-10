@@ -16,7 +16,7 @@ class Execute(BaseFortiManagerAction):
 
     def run(self, **kwargs):
         """
-        Default set action method.
+        Default execute action method.
 
         :host: overwrite fortimanager ip or hostname
         :username: overwriting username
