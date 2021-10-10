@@ -11,8 +11,9 @@ __all__ = [
 class BaseFortiManagerAction(Action):
     """ Base Action for Fortimanager pack"""
 
-    def __init__(self, config):
-        super(BaseFortiManagerAction, self).__init__(config=config)
+    def __init__(self, config=None, action_service=None):
+        super(BaseFortiManagerAction, self).__init__(
+            config=config, action_service=action_service)
         self.fortimanager = self.config['fortimanager']
         self.username = self.config['username']
         self.password = self.config['password']
